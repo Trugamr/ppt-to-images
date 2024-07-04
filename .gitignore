@@ -1,0 +1,8 @@
+# Input files
+input/*.pptx
+
+# Intermediate cache files
+cache/*.pdf
+
+# Output files
+output/**/*.tiff
