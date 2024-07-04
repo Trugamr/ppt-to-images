@@ -44,8 +44,8 @@ if (Test-Path $inputDirectory) {
     if ($pptxFiles.Count -gt 0) {
         Write-Host "Found $($pptxFiles.Count) PPTX files. Converting to PDF..."
 
-        # Execute command to convert all PPTX files to PDF
-        & $libreOfficeImpressPath --headless --convert-to pdf --outdir $cacheDirectory $inputDirectory\*.pptx
+        # Execute command to convert all PPTX files to PDF with wait for completion
+        Start-Process -FilePath $libreOfficeImpressPath -ArgumentList "--headless --convert-to pdf --outdir $cacheDirectory $inputDirectory\*.pptx" -Wait
 
         # Check the exit code of the last command
         if ($LastExitCode -eq 0) {
